@@ -31,3 +31,11 @@ graph LR
     B --> C{Inventory Service}
     C -->|1. Check Stock and Version| D[(Product Table)]
     C -->|2. Save Transaction| E[(Audit Log Table)]
+
+
+## Lokaler Start
+
+Repository klonen:
+```bash
+git clone [https://github.com/andriibohomolskyi/inventory-concurrency-system.git](https://github.com/andriibohomolskyi/inventory-concurrency-system.git)
+cd inventory-concurrency-system
