@@ -32,10 +32,27 @@ graph LR
     C -->|1. Check Stock and Version| D[(Product Table)]
     C -->|2. Save Transaction| E[(Audit Log Table)]
 
-
+```
 ## Lokaler Start
 
 Repository klonen:
 ```bash
 git clone [https://github.com/andriibohomolskyi/inventory-concurrency-system.git](https://github.com/andriibohomolskyi/inventory-concurrency-system.git)
 cd inventory-concurrency-system
+```
+Anwendung starten:
+```bash
+./mvnw spring-boot:run
+```
+
+Nach dem Start sind folgende Oberflächen lokal erreichbar:
+- Web-UI Dashboard: http://localhost:8080
+- Swagger API-Dokumentation: http://localhost:8080/swagger-ui.html
+
+## Tests und Concurrency-Beweis
+
+Der integrierte Lasttest kann über folgenden Befehl ausgeführt werden:
+```bash
+./mvnw test
+```
+Dieser Test simuliert 200 gleichzeitige Nutzer. Er liefert den reproduzierbaren Beweis, dass das System Race Conditions abfängt, die mathematische Integrität der Datenbank wahrt und Überverkäufe zu 100 Prozent ausschließt.
